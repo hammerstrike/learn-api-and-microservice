@@ -3,6 +3,7 @@
 	"author": "hammerStrike",
 	"description": "A project that does something awesome",
 	"keywords": [ "freecodecamp", "nodejs", "package.json", "api", "microservice" ],
+	"license": "MIT",
 	"dependencies": {
 		"express": "^4.14.0"
 	},
