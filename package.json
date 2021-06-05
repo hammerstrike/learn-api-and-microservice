@@ -2,7 +2,7 @@
 	"name": "fcc-learn-npm-package-json",
 	"author": "hammerStrike",
 	"description": "A project that does something awesome",
-	"keywords": [ "nodejs", "package.json", "api", "microservice" ],
+	"keywords": [ "freecodecamp", "nodejs", "package.json", "api", "microservice" ],
 	"dependencies": {
 		"express": "^4.14.0"
 	},
