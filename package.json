@@ -1,8 +1,6 @@
 {
 	"name": "fcc-learn-npm-package-json",
-	"author": {
-		"name": "hammerStrike"
-	},
+	"author": "hammerStrike",
 	"dependencies": {
 		"express": "^4.14.0"
 	},
