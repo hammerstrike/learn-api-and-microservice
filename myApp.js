@@ -53,4 +53,9 @@ app.get('/name', function (req, res) {
     res.send({ name: `${first} ${last}`});
 })
 
+app.post('/name', function (req, res) {
+    const { first, last } = req.body;
+    res.send({ name: `${first} ${last}`});
+})
+
 module.exports = app;
