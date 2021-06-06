@@ -2,18 +2,16 @@ const express = require("express");
 const app = express();
 console.log("Hello World");
 
-const absolutePath = __dirname + '/views/index.html';
+app.use("/public", express.static(__dirname + "/public"));
 
 /** 
  * 
  * Start a working express server
  * Serve request
- * app.get("/", function (req, res) {
- *      res.send("Hello Express");
- * });
 */
+const indexFile = __dirname + '/views/index.html';
 app.get("/", function (req, res) {
-    res.sendFile(absolutePath);
+    res.sendFile(indexFile);
 });
 
 module.exports = app;
