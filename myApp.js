@@ -1,9 +1,15 @@
 const express = require("express");
 const app = express();
-require('dotenv').config()
+require("dotenv").config();
 console.log("Hello World");
 
 app.use("/public", express.static(__dirname + "/public"));
+
+// Middelware
+app.use(function (req, res, next) {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next();
+});
 
 /**
  * Start a working express server
