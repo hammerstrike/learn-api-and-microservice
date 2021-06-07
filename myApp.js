@@ -13,8 +13,8 @@ const personSchema = new Schema({
 let Person = mongoose.model('Person', personSchema);;
 
 const createAndSavePerson = (done) => {
-  const hiccupHaddock = new Person({ name : 'Hiccup', age : 20, favoriteFoods : ['meat', 'fish']})
-  hiccupHaddock.save(function(err, data) {
+  const person = new Person({ name : 'Hiccup', age : 20, favoriteFoods : ['meat', 'fish']})
+  person.save(function(err, data) {
     if (err) return console.error(err);
     console.log(data);
     done(null, data)
@@ -22,7 +22,11 @@ const createAndSavePerson = (done) => {
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
-  done(null /*, data*/);
+  const manyPeople = Person.create(arrayOfPeople, function (err, people) {
+    if (err) return console.log(err);
+    console.log(people);
+    done(null, people);
+  });
 };
 
 const findPeopleByName = (personName, done) => {
