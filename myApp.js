@@ -95,7 +95,6 @@ const removeById = (personId, done) => {
     console.log(removedDoc);
     done(null, removedDoc);
   });
-  done(null /*, data*/);
 };
 
 const removeManyPeople = (done) => {
