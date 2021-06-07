@@ -1,61 +1,72 @@
-const express = require("express");
-const app = express();
-const bodyParser = require('body-parser');
 require("dotenv").config();
-console.log("Hello World");
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.use("/public", express.static(__dirname + "/public"));
-app.use(bodyParser.urlencoded({extended: false}));
 
-// Middelware
-app.use(function (req, res, next) {
-  console.log(`${req.method} ${req.path} - ${req.ip}`);
-  next();
-});
+let Person;
 
-/**
- * Start a working express server
- * Serve request
+const createAndSavePerson = (done) => {
+  done(null /*, data*/);
+};
+
+const createManyPeople = (arrayOfPeople, done) => {
+  done(null /*, data*/);
+};
+
+const findPeopleByName = (personName, done) => {
+  done(null /*, data*/);
+};
+
+const findOneByFood = (food, done) => {
+  done(null /*, data*/);
+};
+
+const findPersonById = (personId, done) => {
+  done(null /*, data*/);
+};
+
+const findEditThenSave = (personId, done) => {
+  const foodToAdd = "hamburger";
+
+  done(null /*, data*/);
+};
+
+const findAndUpdate = (personName, done) => {
+  const ageToSet = 20;
+
+  done(null /*, data*/);
+};
+
+const removeById = (personId, done) => {
+  done(null /*, data*/);
+};
+
+const removeManyPeople = (done) => {
+  const nameToRemove = "Mary";
+
+  done(null /*, data*/);
+};
+
+const queryChain = (done) => {
+  const foodToSearch = "burrito";
+
+  done(null /*, data*/);
+};
+
+/** **Well Done !!**
+/* You completed these challenges, let's go celebrate !
  */
-const indexFile = __dirname + "/views/index.html";
-app.get("/", function (req, res) {
-  res.sendFile(indexFile);
-});
 
-app.get("/json", function (req, res) {
-  let message = "Hello World";
-  res.json({
-    message:
-      process.env.MESSAGE_STYLE === "uppercase"
-        ? message.toUpperCase()
-        : message,
-  });
-});
+//----- **DO NOT EDIT BELOW THIS LINE** ----------------------------------
 
-app.get(
-  "/now",
-  function (req, res, next) {
-    req.time = new Date().toString();
-    next();
-  },
-  function (req, res) {
-    res.json({ time: req.time });
-  }
-);
-
-app.get("/:word/echo", function (req, res) {
-  const { word } = req.params;
-  res.json({ echo: word });
-});
-
-app.get('/name', function (req, res) {
-    const { first, last } = req.query;
-    res.send({ name: `${first} ${last}`});
-})
-
-app.post('/name', function (req, res) {
-    const { first, last } = req.body;
-    res.send({ name: `${first} ${last}`});
-})
-
-module.exports = app;
+exports.PersonModel = Person;
+exports.createAndSavePerson = createAndSavePerson;
+exports.findPeopleByName = findPeopleByName;
+exports.findOneByFood = findOneByFood;
+exports.findPersonById = findPersonById;
+exports.findEditThenSave = findEditThenSave;
+exports.findAndUpdate = findAndUpdate;
+exports.createManyPeople = createManyPeople;
+exports.removeById = removeById;
+exports.removeManyPeople = removeManyPeople;
+exports.queryChain = queryChain;
