@@ -1,13 +1,11 @@
 const express = require("express");
 const app = express();
-
+const api = require("./server.js");
 const helmet = require("helmet");
 
 app.use(helmet.hidePoweredBy());
 app.use(helmet.frameguard({ action: "deny" }));
 
-module.exports = app;
-const api = require("./server.js");
 app.use(express.static("public"));
 app.disable("strict-transport-security");
 app.use("/_api", api);
@@ -18,3 +16,5 @@ let port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Your app is listening on port ${port}`);
 });
+
+module.exports = app;
